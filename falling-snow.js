@@ -22,9 +22,9 @@ const drawSquareOutline = (context, x, y, width) => {
     context.strokeRect(x, y, width, width);
 };
 
-const maxRows = 80;
-const maxColumns = 40;
-const cellSize = 10; // square pizel size per cell
+const maxRows = 160;
+const maxColumns = 80;
+const cellSize = 5; // square pizel size per cell
 const fallEveryFrameAmount = 50;
 let currentFrameProgress = 0;
 
@@ -145,6 +145,7 @@ const setTheScene = () => {
     // add an event for whenever the user clicks on the canvas.
     
     canvas.addEventListener('click', onClickedInCanvas);
+    canvas.addEventListener('mousemove', onClickedInCanvas);
 };
 
 window.onload = setTheScene;
