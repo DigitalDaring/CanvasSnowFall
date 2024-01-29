@@ -1,0 +1,12 @@
+{
+  "name": "falling-snow",
+  "version": "1.0.0",
+  "description": "Just some calming falling snow",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Edmund Bates (DigitalDaring)",
+  "license": "ISC"
+}

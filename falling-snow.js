@@ -1,5 +1,7 @@
 let start, previousTimeStamp;
 
+const flipCoin = () => Math.round(Math.random());
+
 const wipeTheCanvasClean = (context) => {
     context.fillStyle = 'rgba(0,0,0, 255)';
     context.fillRect(0, 0, 2000, 900);
@@ -40,6 +42,15 @@ const doSomethingForEveryCell = (theGrid, theThing) => {
     }
 };
 
+const spawnRandomSnowAtTop = () => {
+    for (let x = 0; x < maxColumns; x++) {
+        const gonnaBeSnow = flipCoin() + flipCoin() + flipCoin() + flipCoin();
+        if (gonnaBeSnow === 4) {
+            snowGrid[x][0] = 1;
+        }
+    }
+}
+
 const getBlankSnowGrid = () => {
     const columns = [];
 
@@ -70,8 +81,6 @@ const renderSnowGrid = (context, fullGrid) => {
         }
     });
 };
-
-const flipCoin = () => Math.round(Math.random());
 
 const letSnowFallIntoNewGrid = (startGrid) => {
     const blankGrid = getBlankSnowGrid();
@@ -126,6 +135,7 @@ const setTheScene = () => {
             });
             queuedClicks = [];
             wipeTheCanvasClean(context);
+            spawnRandomSnowAtTop();
     
             //drawText(context, `${frameDifference}`, 100, 100);
             const nextSnowGrid = letSnowFallIntoNewGrid(snowGrid);
